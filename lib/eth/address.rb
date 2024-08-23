@@ -29,6 +29,7 @@ module Eth
     #
     # @param address [String] hex string representing an ethereum address.
     def initialize(address)
+      return if address.match(/^sei/)
       unless Util.hex? address
         raise CheckSumError, "Unknown address type #{address}!"
       end
